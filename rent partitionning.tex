@@ -48,11 +48,29 @@ L'article \'etudi\'e\footnote{Rental harmony : Sperner's lemma in fair division,
 
 \subsection{Lemme de Sperner}
 
+La triangulation d'un simplexe de dimension $n$ par des $n$-simplexes \'el\'ementaires est dite de Sperner lorsque les $n+1$ sommets sont index\'es par un chiffre diff\'erent et que pour tout sous-simplexe de dimension inférieure ayant uniquement des sommets dans l'ensemble des $n+1$ sommets du simplexe de base, toute triangulation de ce sous-simplexe par des simplexes \'el\'ementaires ne contiennent que des chiffres des sommets initiaux du sous-simplexe.
+
+Une telle triangulation d'un simplexe poss\`ede une propriété d\'ecrite par le lemme de Sperner : un tel simplexe possède n\'ecessairement un nombre impair sous-simplexe élémentaire de même dimension n avec les $n+1$ différentes indexations aux $n+1$ sommets de ce simplexe \'el\'ementaire
 \subsection{R\'esolution du probl\`eme de \textit{rent-partitioning}}
+%resumer le prb du gateau en premier?
+
+Le lemme de Sperner trouve alors une application dans la vie courante : le probl\`eme de l'allocation des chambres entre plusieurs locataires. Pr\'esentons le probl\`eme : on a $n$ locataires qui payent un certain loyer pour occuper une chambre et doivent d\'ecider entre eux de la part de loyer \? a payer. Le but est de trouver une r\'epartition du loyer qui apporte un payement qui soit socialement juste pour tous les joueurs.
+Les hypothèses prises sur les joueurs sont les suivantes :
+\begin{enumerate}
+	\item Tout locataire est satisfait par au moins une des chambres de la propri\'et\'e, quelque soit la r\'epartition du loyer.
+	\item Une personne pr\'ef\`ere toujours une chambre gratuite \`a une chambre payante.
+	\item Si une personne est satisfaite par une certaine chambre pour une suite convergente de r\'epartition de loyer, alors il est satisfait par la m\^{e}me chambre \`a la limite de cette r\'epartition.
+\end{enumerate}
+%expliquer en quoi cela se rapproche de Sperner
+%parler de dualite?
+%faire une fonction de payement theorie des jeux? ou pseudo fonction?
 
 \subsection{Algorithme de r\'esolution}
 
 \section{R\'eflexions personnelles}
+
+\subsection{Adaptation du probl\`eme au cours}
+%je ne suis pas sur de l'utilit\'e du truc si on fait le lien direct dans les parties
 
 \subsection{Impl\'ementation de l'algorithme}
 
