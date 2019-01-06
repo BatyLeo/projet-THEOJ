@@ -52,6 +52,9 @@ La triangulation d'un simplexe de dimension $n$ par des $n$-simplexes \'el\'emen
 
 Une telle triangulation d'un simplexe poss\`ede une propriété d\'ecrite par le lemme de Sperner : un tel simplexe possède n\'ecessairement un nombre impair sous-simplexe élémentaire de même dimension n avec les $n+1$ différentes indexations aux $n+1$ sommets de ce simplexe \'el\'ementaire
 
+\todo[inline]{découpage barycentrique vite fait}
+Ce proc\'ed\'e de triangulation marche surtout pour s'occuper de probl\`emes de division pour 3 personnes. Ce processus et les lemmes montr\'es peuvent \^{e} g\'en\'eralis\'es \`a un nombre sup\'erieur de personnes en r\'ealisant une triangulation par subdivision barycentrique.
+
 \subsection{Mod\'elisation du probl\`eme}
 %resumer le prb du gateau en premier?
 
@@ -63,10 +66,11 @@ Les hypothèses prises sur les joueurs sont les suivantes :
 	\item Si une personne est satisfaite par une certaine chambre pour une suite convergente de r\'epartition de loyer, alors il est satisfait par la m\^{e}me chambre \`a la limite de cette r\'epartition.
 \end{enumerate}
 \todo[inline]{expliquer en quoi cela se rapproche de Sperner}
+Pour r\'esoudre ce probl\`eme, on fait un découpage barycentrique des diff\'erentes partitions possibles (dis\'etis\'ees) de la r\'epartition du loyer. On nomme les sommets %abandon de ma part... je n'ai pas tout compris!
 \todo[inline]{parler de dualite?}
-\todo[inline]{faire une fonction de payement theorie des jeux? ou pseudo fonction?}
+\todo[inline]{faire une fonction de payement theorie des jeux? ou pseudo fonction?, fait!}
 
-Jeu sous forme normale :
+Finalement, on propose aussi une tentative de mise du jeu sous forme normale :
 
 \begin{enumerate}
 \item $N+1$ joueurs :
