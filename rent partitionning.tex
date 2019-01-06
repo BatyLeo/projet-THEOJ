@@ -30,7 +30,7 @@
 
 
 \title{\textbf{Synth\`ese d'article} :\\ Rental harmony : Sperner's lemma in fair division}
-\author{\textsc{L\'eo Baty, Luca Brunod-Indrigo , Emmanuel Lo, Nicolas Podvin}}
+\author{\textsc{L\'eo Baty, Luca Brunod-Indrigo, Emmanuel Lo, Nicolas Podvin}}
 \date{07/01/2019}
 
 
@@ -40,66 +40,76 @@
 
 \tableofcontents
 
+\newpage
+
 \section{Introduction}
 
 L'article \'etudi\'e\footnote{Rental harmony : Sperner's lemma in fair division, FRANCIS EDWARD SU} porte sur la r\'esolution du probl\`eme de \textit{rent-partitioning} \`a l'aide du lemme de Sperner. Le probl\`eme concret \`a r\'esoudre est le suivant : $n$ individus s'appr\^{e}tent \`a s'installer en collocation dans un logement poss\'edant $n$ chambres, et vient le moment de la r\'epartition des chambres. Si l'on associe \`a chaque chambre un pourcentage du loyer \`a payer, y a-t-il une r\'epartition du loyer optimale, telle que chaque colocataire pr\'ef\`ere une chambre diff\'erente ? 
 
 \section{R\'esum\'e de l'article}
 
+\subsection{Quelques d\'efinitions}
+
+Le lemme de Sperner utilise la notion de \textit{n-simplexe}, c’est à dire l’enveloppe convexe d’un ensemble de $n+1$ points linéairement indépendants de $\mathbb{R}^m$, avec $m\leq n$. Dans les problèmes abordés, le simplexe est en fait une façon de représenter un ensemble de solutions.
+On appelle triangulation d’un \textit{n-simplexe} $S$ un ensemble de \textit{n-simplexes} dont l’union est égale à $S$ est dont l’intersection deux à deux est soit vide soit égale à un simplexe de dimension inférieure -- soit une face.
+
 \subsection{Lemme de Sperner}
 
-La triangulation d'un simplexe de dimension $n$ par des $n$-simplexes \'el\'ementaires est dite de Sperner lorsque les $n+1$ sommets sont index\'es par un chiffre diff\'erent et que pour tout sous-simplexe de dimension inférieure ayant uniquement des sommets dans l'ensemble des $n+1$ sommets du simplexe de base, toute triangulation de ce sous-simplexe par des simplexes \'el\'ementaires ne contiennent que des chiffres des sommets initiaux du sous-simplexe.
+La triangulation d'un \textit{n-simplexe} $S$ par des \textit{n-simplexe} \'el\'ementaires est dite \textbf{de Sperner} lorsque:
 
-Une telle triangulation d'un simplexe poss\`ede une propriété d\'ecrite par le lemme de Sperner : un tel simplexe possède n\'ecessairement un nombre impair sous-simplexe élémentaire de même dimension n avec les $n+1$ différentes indexations aux $n+1$ sommets de ce simplexe \'el\'ementaire
+\begin{enumerate}
+\item Chaque sommet de $S$ du \textit{n-simplexe} est index\'e par un entier diff\'erent de $\llbracket1,n+1 \rrbracket$.
+\item Les noeuds de la triangulation appartenant \`a un sous-simplexe engendr\'e par $n$ sommets de $S$ sont num\'erot\'es avec les indices de ces sommets.
+\item Les noeuds restants, dits noeuds int\'erieurs, sont index\'es de mani\`ere quelconque par des entiers de $\llbracket 1,n+1 \rrbracket$.
+\end{enumerate}
 
-\todo[inline]{découpage barycentrique vite fait}
-Ce proc\'ed\'e de triangulation marche surtout pour s'occuper de probl\`emes de division pour 3 personnes. Ce processus et les lemmes montr\'es peuvent \^{e} g\'en\'eralis\'es \`a un nombre sup\'erieur de personnes en r\'ealisant une triangulation par subdivision barycentrique.
+
+Une telle triangulation d'un simplexe poss\`ede une propriété d\'ecrite par le \textbf{lemme de Sperner : il possède n\'ecessairement un nombre impair de \textit{n-simplexes} élémentaires dont les $n+1$ sommets sont num\'erot\'es par tous les entiers de $\llbracket 1,n+1 \rrbracket$}.
 
 \subsection{Mod\'elisation du probl\`eme}
-%resumer le prb du gateau en premier?
 
-Le lemme de Sperner trouve alors une application dans la vie courante : le probl\`eme de l'allocation des chambres entre plusieurs locataires. Pr\'esentons le probl\`eme : on a $n$ locataires qui payent un certain loyer pour occuper une chambre et doivent d\'ecider entre eux de la part de loyer \? a payer. Le but est de trouver une r\'epartition du loyer qui apporte un payement qui soit socialement juste pour tous les joueurs.
-Les hypothèses prises sur les joueurs sont les suivantes :
+Le lemme de Sperner trouve alors une application dans la vie courante : le probl\`eme de l'allocation des chambres entre plusieurs locataires. Les $n$ locataires doivent d\'ecider de la r\'epartition entre eux du montant du loyer. Le but est alors de trouver une r\'epartition du loyer qui telle que chaque locataire pr\'ef\`ere occuper une chambre diff\'erente.\\
+
+\noindent Les hypothèses sur les joueurs sont les suivantes :
 \begin{enumerate}
 	\item Tout locataire est satisfait par au moins une des chambres de la propri\'et\'e, quelque soit la r\'epartition du loyer.
 	\item Une personne pr\'ef\`ere toujours une chambre gratuite \`a une chambre payante.
-	\item Si une personne est satisfaite par une certaine chambre pour une suite convergente de r\'epartition de loyer, alors il est satisfait par la m\^{e}me chambre \`a la limite de cette r\'epartition.
+	\item L'ensemble des pr\'ef\'erence est ferm\'e. C'est-\`a-dire qu'un locataire pr\'ef\`ere une m\^eme chambre pour une suite convergente de r\'epartition du loyer pr\'ef`erera cette chambre \`a la r\'epartition limite.
 \end{enumerate}
-\todo[inline]{expliquer en quoi cela se rapproche de Sperner}
-Pour r\'esoudre ce probl\`eme, on fait un découpage barycentrique des diff\'erentes partitions possibles (dis\'etis\'ees) de la r\'epartition du loyer. On nomme les sommets %abandon de ma part... je n'ai pas tout compris!
-\todo[inline]{parler de dualite?}
-\todo[inline]{faire une fonction de payement theorie des jeux? ou pseudo fonction?, fait!}
 
-Finalement, on propose aussi une tentative de mise du jeu sous forme normale :
+\bigskip
+
+Nous avons choisi de nous concenter sur la version discr\'etis\'ee du probl\`eme : on consid\`ere qu'il existe un seuil $\epsilon$ tel que deux montants de loyer ne sont distinguable qu'\`a  plus de $\epsilon$ pr\`es. Ce seuil peut \^etre interpr\'et\'e simplement comme un montant inf\'erieur \`a la plus petite unit\'e mon\'etaire.\\
+
+Ainsi, le nombre de partages possibles du loyer est fini et on peut mettre le jeu sous forme normale de la fa\c{cfgeqFYGuiaguifg}on suivante :
 
 \begin{enumerate}
-\item $N+1$ joueurs :
+\item $n+1$ joueurs $\epsilon$-tol\'erants:
 	\begin{itemize}
-		\item $N$ locataires $J_1, ... J_N$
-		\item la communaut\'e : $J_{N+1}$
+		\item $N$ locataires $J_1, ...\,, J_n$
+		\item Un joueur suppl\'ementaire $J_{n+1}$ repr\'esentant la communaut\'e
 	\end{itemize}
 \item Strat\'egies : 
 	\begin{itemize}
-		\item Strat\'egies de $J_{N+1}$ : proposition de partage (dans le mod\`ele discr\'etis\'e de finesse $\delta = \frac{1}{k} < \epsilon$. $S_{N+1} = \{ (x_1, ..., x_n)\in[0,1]^N |\, x_1 + ... + x_n=1, x_i = n_i \delta, n_i\in\mathbb{N}\}$
-		Une proposition de partage correspond \`a un sommet de la triangulation avec un maillage de taille $\delta$.
-		\item Strat\'egies de $J_i,\, i\in \llbracket1,N \rrbracket$ : choix d'une chambre connaisant la proposition de $J_{N+1}$. $S_i = \{ s_i : S_{N+1} \rightarrow \llbracket1,N \rrbracket \}$ (ensemble fini)
+		\item Strat\'egies de $J_{n+1}$ : proposition de partage (on consid\`ere que le montant du loyer vaut $1$).\\ $S_{n+1} = \{ (x_1, ..., x_n)\in[0,1]^n |\,  x_1 + ... + x_n=1, \forall i \in \llbracket1,n+1 \rrbracket\, x_i = n_i \epsilon\,, n_i\in\mathbb{N}\}$
+		\item Strat\'egies de $J_i,\, i\in \llbracket1,n \rrbracket$ : choix d'une chambre connaisant la proposition de $J_{n+1}$. $S_i = \{ s_i : S_{n+1} \rightarrow \llbracket1,n \rrbracket \}$ (ensemble fini)
 	\end{itemize}
 \item Paiements :
 	\begin{itemize}
-		\item Paiement de $J_{N+1}$ :
+		\item Paiement de $J_{n+1}$ :
 		$$
-			g_{n+1}(s_1, ..., s_{N+1}) = \left\{
+			g_{n+1}(s_1, ..., s_{n+1}) = \left\{
     			\begin{array}{ll}
-        				-\infty & \mbox{si } \exists\, i,j \in\llbracket 1,N \rrbracket,\, i\neq j,\, s_i = s_j \mbox{ (co,flit)} \\
+        				-\infty & \mbox{si } \exists\, i,j \in\llbracket 1,n \rrbracket,\, i\neq j,\, s_i = s_j \\
         				0 & \mbox{sinon.}
     			\end{array}
 			\right.
 		$$
-		\item Paiement de $J_{i},\, i\in \llbracket 1,N \rrbracket$ :\\ On suppose que chaque joueur a une fonction de pr\'ef\'erene $P_i : S_{N+1} \rightarrow \llbracket 1,N \rrbracket$
+		\item Paiement de $J_{i},\, i\in \llbracket 1,n\rrbracket$ : on suppose que chaque joueur a une fonction de pr\'ef\'erence $P_i : S_{n+1} \rightarrow \mathcal{P}(\llbracket 1,n \rrbracket)\backslash\emptyset$ garantissant que le joueur pr\'ef\'ere toujours une chambre gratuite \`a une payante.
 		$$
-			g_{i}(s_1, ..., s_{N+1}) = \left\{
+			g_{i}(s_1, ..., s_{n+1}) = \left\{
     			\begin{array}{ll}
-        				0 & \mbox{si } s_i(s_{N+1})=P_i(s_{N+1}) \\
+        				0 & \mbox{si } s_i(s_{n+1})\in P_i(s_{n+1}) \\
         				-\infty & \mbox{sinon.}
     			\end{array}
 			\right.
@@ -107,33 +117,25 @@ Finalement, on propose aussi une tentative de mise du jeu sous forme normale :
 	\end{itemize}
 \end{enumerate}
 
-\subsection{R\'esolution du probl\`eme de \textit{rent-partitioning}}
+L'existence d'une solution au probl\`eme de \textit{rent-partitionning} se d\'emontre en se ramenant \`a une triangulation de Sperner et en utilisant le lemme associ\'e d\'efini pr\'ec\'edemment.
 
-\subsection{Algorithme de r\'esolution}
+Tout d'abord, on se munit d'un \textit{$n-1$-simplexe} $S$ maill\'e avec un pas $\epsilon>0$, et on \'etiquette chaque sommet de ce simplexe avec le nom d'un joueur. Chaque point \`a l'int\'erieur de ce simplexe correspond \`a une r\'epartition possible du loyer entre les chambres, les sommets de $S$ correspondant aux cas particuliers o\`u l'un des locataires paye tout. Puis, on \'etiquette tous les simplexes \'el\'ementaires de sorte \`a ce que chacun ait un sommet au nom de chaque joueur.
 
-Algorithme approch\'e de division \'equitable 
-Les th\'eor\`emes \'enonc\'es pr\'ec\'edemment garantissent l'existence d'un partage \'equitable construit comme limite ponctuelle d'une suite de n-simplex r\'esultant de triangulations de plus en plus fines. Une telle construction, par son caract\`ere asymptotique, est difficilement applicable dans des situation concr\`etes, en revanche, dans les applications classiques telles que celles qui nous int\'eressent et qui sont abord\'ees dans l'article, il est possible de se contenter de solutions approch\'ees. En effet, lorsqu'il existe un seuil au-dessous duquel les diff\'erents joueurs sont incapables de distinguer deux partages proches ñ typiquement, le seuil de la miette dans un partage de g\^ateau ou celui du centime dans le cas d'un partage de loyer ñ il n'est plus n\'ecessaire de consid\'erer des triangulations infiniment fines pour arriver \`a une solution.
-Si l'on note $e$ le seuil en question et que l'on effectue la triangulation du n-simplexe de l'ensemble des partages possibles avec une taille de maillage inf\'erieure \`a $e$, les partages correspondant aux sommets d'un simplexe \'el\'ementaire de cette triangulation ne sont pas discernables par les joueurs du fait de leur e-tol\'erance. Dans ces conditions, trouver un simplex \'el\'ementaire compl\`etement \'etiquet\'e revient \`a trouver un partage \'equitable.
-\todo[inline]{// !!!!!je ne sais pas \`a quel point la m\'ethode des trap-doors a \'et\'e d\'etaill\'ee, il faut peut-\^etre compl\'eter pour que ce soit compr\'ehensible !!!!!!!!!!!!//}
-Pour trouver un tel simplexe \'el\'ementaire, il faut parcourir le maillage de porte en porte en partant des portes ext\'erieures, qui sont situ\'ees sur la face $n$. Comme expliqu\'e pr\'ec\'edemment dans la preuve du lemme de Sperner, on aboutit n\'ecessairement \`a un simplexe \'el\'ementaire compl\`etement \'etiquet\'e. De plus, il n'est pas n\'ecessaire de conna\^itre la pr\'ef\'erence des joueurs pour tous les noeuds du maillage, la connaissance des pr\'ef\'erences aux noeuds correspondant aux sommets des simplexes \'el\'ementaires parcourus suffit.
+Puis, pour chaque point de ce maillage, on demande au propri\'etaire du sommet (le joueur dont le nom \'etiquette le sommet) quelle chambre il pr\'ef\`ere dans le cas de la r\'epartition de loyer correspondant au sommet, et on l'\'etiquette avec le num\'ero de la chambre pr\'ef\'er\'ee. Ainsi, on obtient une triangulation du simplexe avec les indices correspondants aux $n$ chambres.
 
-\section{R\'eflexions personnelles}
+Enfin, on dualise le \textit{$n-1$-simplexe} $S$ en un nouveau simplexe $S^*$, et l'on obtient alors une triangulation de Sperner. Ainsi, d'apr\`es le lemme de Sperner, il existe un simplexe \'el\'ementaire de $S$ avec les $n$ indices associ\'es aux $n$ chambres. Avec la discr\'etisation choisie, les r\'epartitions du loyer correspondant aux sommets du simplexe \'el\'ementaire trouv\'e, ne sont pas discernable par les joueurs. On a ici r\'esolu le probl\`eme dans un cas discret, mais l'hypoth\`ese de fermeture initiale permettrait d'it\'erer la proc\'edure sur des simplexes de plus en plus petits, et ainsi de trouver une r\'epartition de loyer \'equitable dans un mod\`ele continu par passage \`a la limite et extraction d'une suite o\`u les pr\'ef\'erences des joueurs sont constantes.
 
-\subsection{Adaptation du probl\`eme au cours}
-%je ne suis pas sur de l'utilit\'e du truc si on fait le lien direct dans les parties
 
-\subsection{Impl\'ementation de l'algorithme}
+\section{Exemples d'applications concr\`etes}
 
-\subsection{Exemples d'applications dans la r\'ealit\'e}
+Nous décrirons ici des exemples de la vie r\'eelle qui sauraient se pr\^{e}ter \`a une utilisation de la th\'eorie vue jusqu'\`a présent. Les exemples sont issus d'expériences personnelles ou d'autres cours.
 
-Nous décrirons ici des exemples de la vie r\'eelle qui sauraient se pr\^{e}ter \`a une utilisation de la th\'eorie vue jusqu'\`a présent. Les exemples ont \'et\'e v\'ecus personnellement ou entendus pendant d'autres cours. La plupart symbolisent une alliance de petites forces pour \^{e}tre plus fort, surtout quand le temps presse. La question du partitionnement venant après.
+Un premier exemple est inspir\'e du cours de strat\'egie financi\`ere. Lorsque certaines entreprises veulent d\'evelopper des projets cons\'equents, mais qu'elle n'ont pas les moyens \`a mettre sur ces projets, car elle ne souhaite pas s'endetter ou demander des fonds à des actionnaires, il est possible de faire appel \`a une joint venture. Cette joint venture devient une nouvelle entit\'e detenue \`a parts variables par les entreprises qui l'ont consitu\'ee. Souvent une joint venture = brevets + outils de production + cash + moyens humains... Plus une entreprise va contribuer a cette somme dont les montants pour chaque cat\'egorie ont \'et\'e fix\'es, plus une entreprise va avoir une part de pouvoir importante dans les d\'ecisions de la joint venture, un des exemples \'etant la proportion de membre du comit\'e ex\'ecutif venant d'une faction ou d'une autre. 
+Pour qu'il y ait harmonie dans une joint venture, chaque entreprise contribuant doit id\'ealement avoir une part \'egale de pouvoir dans la joint venture. Il ne reste plus qu'\`a savoir comment r\'epartir les apports de chacun dans la joint venture pour arriver \`a l'\'equilibre.
 
-Un premier exemple est inspir\'e du cours de strat\'egie financi\`ere. Lorsque certaines entreprises veulent d\'evelopper des projets cons\'equents, mais qu'elle n'ont pas les moyens \`a mettre sur ces projets, car elle ne souhaite pas s'endetter ou demander plus de cash en passant par les actionnaires, il est possible de faire appel \`a une joint venture. Cette joint venture devient une nouvelle entit\'e detenue \`a parts variables par les entreprises qui l'ont consitu\'e. Souvent une joint venture = brevets + outils de production + cash + moyens humains... Plus une entreprise va contribuer a cette somme dont les montants pour chaque cat\'egorie ont \'et\'e fix\'es, plus une entreprise va avoir une part de pouvoir importante dans les d\'ecisions de la joint venture, un des exemples \'etant la proportion de membre du comit\'e ex\'ecutif venant d'une faction ou d'une autre. 
-Pour qu'il y ait harmonie dans une joint venture, chaque entreprise contribuant doit id\'ealement avoir une part \'egale de pouvoir dans la joint venture. Il ne reste plus qu'\`a savoir comment r\'epartir les apports de chacun dans la joint venture pour arriver \`a l'\'equilibre...
+Un second exemple vient d'une intervention d'un responsable de salle de march\'e de la Soci\'et\'e G\'enerale lors de la journ\'ee p\'edagogique du d\'epartement SEGF aux tours de la d\'efense. Il disait que les derniers m\`etres carr\'es de Puteaux devenaient extr\^{e}mement chers, pris\'es et restreints, et que certaines entreprises se sont alli\'es pour racheter certains terrains ce qui leur co\^{u}terait moins cher que de louer \`a des acheteurs de terrain plus puissants comme les banques s'ils restaient \`a long terme. Il ne reste plus qu'\`a diviser le prix de la construction future et de l'achat du terrain actuel pour une occupation des locaux qui satisfera tout le monde.
 
-Un second exemple vient d'une intervention d'un responsable de salle de march\'e de la Socie\'et\'e g\'enerale lors de la journ\'e p\'edagogique du d\'epartement SEGF aux tours de la d\'efense. Il disait que les derniers m\`etres carr\'es de Puteaux devenaient extr\^{e}mement chers, pris\'es et restreints, et que certaines entreprises se sont alli\'es pour racheter certains terrains ce qui leur co\^{u}terait moins cher que de louer \`a des acheteurs de terrain plus puissants comme les banques s'ils restaient \`a long terme. Il ne reste plus qu'\`a diviser le prix de la construction future et de l'achat du terrain actuel pour une occupation des locaux qui satisfera tout le monde.
-
-Un dernier exemple, est v\'ecu personnellement. Deux amis essayent de chercher des objets qui peuvent les int\'erresser dans des ench\`eres. Parfois, ces des lots, qui ne seraient pas int\'eressant seuls, sont mis en ench\`eres en lot. Il s'av\`ere que les deux amis sont numismates et voient passer un lot de pleins de pi\`eces \'etrang\`eres diverses. Elles sont pour la plupart d'une valeur assez faible, mais il n'est pas n\'ecessairement facile de les trouver \`a un prix raisonnable sans voyager. N'ayant pas envie de faire monter artificiellement le prix de l'ench\`ere en entrant en concurrence avec un ami aussi int\'eress\'e que moi par le lot, et ayant parfois certaines de ces pi\`eces dans notre collection respective, certaines pi\`eces serviront plus \`a l'un qu'\`a l'autre. L'id\'ee \`a donc d'allier nos budgets pour acheter comme une personne, et en refl\'echissant ensuite \`a la part que chacun allait payer pour le lot selon ses besoins.
+Un dernier exemple, est v\'ecu personnellement. Deux amis essayent de chercher des objets qui pouvaient les int\'erresser dans des ench\`eres. Parfois, certains articles qui auraient eu peu d'intérêt seuls étaient mis aux enchères en lot. Il s'av\`ere que les deux amis sont numismates et voient passer un lot de pi\`eces \'etrang\`eres diverses. Elles sont pour la plupart d'une valeur assez faible, mais il n'est pas n\'ecessairement facile de les trouver \`a un prix raisonnable sans voyager. N'ayant pas envie de faire monter artificiellement le prix de l'ench\`ere en entrant en concurrence avec un ami aussi int\'eress\'e que moi par le lot, et ayant déjà certaines de ces pi\`eces dans nos collections respectives, certaines pi\`eces servant plus \`a l'un qu'\`a l'autre. L'id\'ee a donc été d'allier nos budgets pour acheter comme une personne, et en refl\'echissant ensuite \`a la part que chacun allait payer pour le lot selon ses besoins.
 
 
 
