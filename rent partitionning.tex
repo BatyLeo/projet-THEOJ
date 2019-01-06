@@ -2,7 +2,7 @@
 \usepackage{amsmath, amssymb, amsfonts, mathrsfs} %les plus utiles et quasi indispensables 
 \usepackage{amsthm}%\usepackage[T1]{fontenc}
 \usepackage{a4wide}
-\usepackage[latin1]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage{fancyhdr} %pour les hauts et bas de page
 \usepackage[francais]{babel}% donne de bonnes c\'esures  en francais
 \usepackage{titlesec}%pour modifier le style des sections
@@ -48,24 +48,70 @@ L'article \'etudi\'e\footnote{Rental harmony : Sperner's lemma in fair division,
 
 \subsection{Lemme de Sperner}
 
-La triangulation d'un simplexe de dimension $n$ par des $n$-simplexes \'el\'ementaires est dite de Sperner lorsque les $n+1$ sommets sont index\'es par un chiffre diff\'erent et que pour tout sous-simplexe de dimension inférieure ayant uniquement des sommets dans l'ensemble des $n+1$ sommets du simplexe de base, toute triangulation de ce sous-simplexe par des simplexes \'el\'ementaires ne contiennent que des chiffres des sommets initiaux du sous-simplexe.
+La triangulation d'un simplexe de dimension $n$ par des $n$-simplexes \'el\'ementaires est dite de Sperner lorsque les $n+1$ sommets sont index\'es par un chiffre diff\'erent et que pour tout sous-simplexe de dimension infÃ©rieure ayant uniquement des sommets dans l'ensemble des $n+1$ sommets du simplexe de base, toute triangulation de ce sous-simplexe par des simplexes \'el\'ementaires ne contiennent que des chiffres des sommets initiaux du sous-simplexe.
 
-Une telle triangulation d'un simplexe poss\`ede une propriété d\'ecrite par le lemme de Sperner : un tel simplexe possède n\'ecessairement un nombre impair sous-simplexe élémentaire de même dimension n avec les $n+1$ différentes indexations aux $n+1$ sommets de ce simplexe \'el\'ementaire
-\subsection{R\'esolution du probl\`eme de \textit{rent-partitioning}}
+Une telle triangulation d'un simplexe poss\`ede une propriÃ©tÃ© d\'ecrite par le lemme de Sperner : un tel simplexe possÃ¨de n\'ecessairement un nombre impair sous-simplexe Ã©lÃ©mentaire de mÃªme dimension n avec les $n+1$ diffÃ©rentes indexations aux $n+1$ sommets de ce simplexe \'el\'ementaire
+
+\subsection{Mod\'elisation du probl\`eme}
 %resumer le prb du gateau en premier?
 
 Le lemme de Sperner trouve alors une application dans la vie courante : le probl\`eme de l'allocation des chambres entre plusieurs locataires. Pr\'esentons le probl\`eme : on a $n$ locataires qui payent un certain loyer pour occuper une chambre et doivent d\'ecider entre eux de la part de loyer \? a payer. Le but est de trouver une r\'epartition du loyer qui apporte un payement qui soit socialement juste pour tous les joueurs.
-Les hypothèses prises sur les joueurs sont les suivantes :
+Les hypothÃ¨ses prises sur les joueurs sont les suivantes :
 \begin{enumerate}
 	\item Tout locataire est satisfait par au moins une des chambres de la propri\'et\'e, quelque soit la r\'epartition du loyer.
 	\item Une personne pr\'ef\`ere toujours une chambre gratuite \`a une chambre payante.
 	\item Si une personne est satisfaite par une certaine chambre pour une suite convergente de r\'epartition de loyer, alors il est satisfait par la m\^{e}me chambre \`a la limite de cette r\'epartition.
 \end{enumerate}
-%expliquer en quoi cela se rapproche de Sperner
-%parler de dualite?
-%faire une fonction de payement theorie des jeux? ou pseudo fonction?
+\todo[inline]{expliquer en quoi cela se rapproche de Sperner}
+\todo[inline]{parler de dualite?}
+\todo[inline]{faire une fonction de payement theorie des jeux? ou pseudo fonction?}
+
+Jeu sous forme normale :
+
+\begin{enumerate}
+\item $N+1$ joueurs :
+	\begin{itemize}
+		\item $N$ locataires $J_1, ... J_N$
+		\item la communaut\'e : $J_{N+1}$
+	\end{itemize}
+\item Strat\'egies : 
+	\begin{itemize}
+		\item Strat\'egies de $J_{N+1}$ : proposition de partage (dans le mod\`ele discr\'etis\'e de finesse $\delta = \frac{1}{k} < \epsilon$. $S_{N+1} = \{ (x_1, ..., x_n)\in[0,1]^N |\, x_1 + ... + x_n=1, x_i = n_i \delta, n_i\in\mathbb{N}\}$
+		Une proposition de partage correspond \`a un sommet de la triangulation avec un maillage de taille $\delta$.
+		\item Strat\'egies de $J_i,\, i\in \llbracket1,N \rrbracket$ : choix d'une chambre connaisant la proposition de $J_{N+1}$. $S_i = \{ s_i : S_{N+1} \rightarrow \llbracket1,N \rrbracket \}$ (ensemble fini)
+	\end{itemize}
+\item Paiements :
+	\begin{itemize}
+		\item Paiement de $J_{N+1}$ :
+		$$
+			g_{n+1}(s_1, ..., s_{N+1}) = \left\{
+    			\begin{array}{ll}
+        				-\infty & \mbox{si } \exists\, i,j \in\llbracket 1,N \rrbracket,\, i\neq j,\, s_i = s_j \mbox{ (co,flit)} \\
+        				0 & \mbox{sinon.}
+    			\end{array}
+			\right.
+		$$
+		\item Paiement de $J_{i},\, i\in \llbracket 1,N \rrbracket$ :\\ On suppose que chaque joueur a une fonction de pr\'ef\'erene $P_i : S_{N+1} \rightarrow \llbracket 1,N \rrbracket$
+		$$
+			g_{i}(s_1, ..., s_{N+1}) = \left\{
+    			\begin{array}{ll}
+        				0 & \mbox{si } s_i(s_{N+1})=P_i(s_{N+1}) \\
+        				-\infty & \mbox{sinon.}
+    			\end{array}
+			\right.
+		$$
+	\end{itemize}
+\end{enumerate}
+
+\subsection{R\'esolution du probl\`eme de \textit{rent-partitioning}}
 
 \subsection{Algorithme de r\'esolution}
+
+Algorithme approch\'e de division \'equitable 
+Les th\'eor\`emes \'enonc\'es pr\'ec\'edemment garantissent l'existence d'un partage \'equitable construit comme limite ponctuelle d'une suite de n-simplex r\'esultant de triangulations de plus en plus fines. Une telle construction, par son caract\`ere asymptotique, est difficilement applicable dans des situation concr\`etes, en revanche, dans les applications classiques telles que celles qui nous int\'eressent et qui sont abord\'ees dans l'article, il est possible de se contenter de solutions approch\'ees. En effet, lorsqu'il existe un seuil au-dessous duquel les diff\'erents joueurs sont incapables de distinguer deux partages proches Ã± typiquement, le seuil de la miette dans un partage de g\^ateau ou celui du centime dans le cas d'un partage de loyer Ã± il n'est plus n\'ecessaire de consid\'erer des triangulations infiniment fines pour arriver \`a une solution.
+Si l'on note $e$ le seuil en question et que l'on effectue la triangulation du n-simplexe de l'ensemble des partages possibles avec une taille de maillage inf\'erieure \`a $e$, les partages correspondant aux sommets d'un simplexe \'el\'ementaire de cette triangulation ne sont pas discernables par les joueurs du fait de leur e-tol\'erance. Dans ces conditions, trouver un simplex \'el\'ementaire compl\`etement \'etiquet\'e revient \`a trouver un partage \'equitable.
+\todo[inline]{// !!!!!je ne sais pas \`a quel point la m\'ethode des trap-doors a \'et\'e d\'etaill\'ee, il faut peut-\^etre compl\'eter pour que ce soit compr\'ehensible !!!!!!!!!!!!//}
+Pour trouver un tel simplexe \'el\'ementaire, il faut parcourir le maillage de porte en porte en partant des portes ext\'erieures, qui sont situ\'ees sur la face $n$. Comme expliqu\'e pr\'ec\'edemment dans la preuve du lemme de Sperner, on aboutit n\'ecessairement \`a un simplexe \'el\'ementaire compl\`etement \'etiquet\'e. De plus, il n'est pas n\'ecessaire de conna\^itre la pr\'ef\'erence des joueurs pour tous les noeuds du maillage, la connaissance des pr\'ef\'erences aux noeuds correspondant aux sommets des simplexes \'el\'ementaires parcourus suffit.
 
 \section{R\'eflexions personnelles}
 
